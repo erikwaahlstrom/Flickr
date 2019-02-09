@@ -1,0 +1,10 @@
+# Editor specific
+.vscode
+
+# Others
+/node_modules
+package-lock.json
+yarn.lock
+.DS_STORE
+/dist
+.cache
