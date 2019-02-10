@@ -75,7 +75,7 @@ export default class Gallery {
     this.apiRequest(
       "flickr.photos.search",
       `&text=${this.searchInput}`,
-      "&per_page=25",
+      "&per_page=9",
       "&safe_search=3",
       "&content_type=1"
       // '&page=10'

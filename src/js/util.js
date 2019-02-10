@@ -1,9 +1,11 @@
+import loadingGIF from "../img/loading.gif";
+
 export default class Util {
   static loading() {
     const printContainer = document.querySelector(".load");
     let template = ` 
         <div class="overlay">
-            <img src="../img/loading.gif">
+            <img src=${loadingGIF}>
         </div>
         `;
     printContainer.insertAdjacentHTML("beforeend", template);
