@@ -45,18 +45,14 @@ export default class Gallery {
    * @return data from the call
    */
   async apiRequest(_method, ..._params) {
-    console.log("_params", _params);
     const params = [];
-    console.log("params", params);
     params.push(..._params);
     const apiParams = params.join("");
-    console.log("apiParams", apiParams);
     try {
       const flickrApi = await fetch(`
       https://api.flickr.com/services/rest/?method=${_method}${
         this.apiKey
       }${apiParams}${this.format}`);
-      console.log(flickrApi);
       const data = await flickrApi.json();
       Util.loading();
       if (data.stat === "fail") {

@@ -9,12 +9,22 @@ window.addEventListener("load", () => {
   Util.startTime();
   // API KEY
   const apiKey = "aad79acb002d2bcdbfce37406f478e6f";
+  const defaultSearchInput = document.querySelector(".searchInput").value;
+  if (defaultSearchInput) {
+    TemplateGallery.cleanContent();
+    Gallery.getInstance(apiKey, defaultSearchInput);
+  } else {
+    TemplateGallery.cleanContent();
+    TemplateGallery.error(
+      `You haven't searched for anything specific. Please enter a input value in the search form`
+    );
+  }
   const searchForm = document
     .querySelector(".searchForm")
     .addEventListener("submit", e => {
       e.preventDefault();
       const searchInput = document.querySelector(".searchInput").value;
-      if (searchInput !== "") {
+      if (searchInput) {
         TemplateGallery.cleanContent();
         Gallery.getInstance(apiKey, searchInput);
       } else {
