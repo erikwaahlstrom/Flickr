@@ -64,6 +64,10 @@ export default class Gallery {
       return e;
     }
   }
+
+  // default functions that runs everytime there is a new instance (search).
+  // Method and ...params from API is sent.
+  //
   search() {
     // Method, ...params
     // params reference https://www.flickr.com/services/api/flickr.photos.search.html
@@ -82,15 +86,16 @@ export default class Gallery {
         TemplateGallery.error("Sorry, no results found, try another keyword!");
       }
       photos.map(p => {
-        this.photos++;
-        const photoRequest = this.apiRequest(
-          "flickr.photos.getSizes",
-          `&photo_id=${p.id}`
-        )
+        this.apiRequest("flickr.photos.getSizes", `&photo_id=${p.id}`)
           .then(_pictures => {
-            const quality = _pictures.sizes.size.length - 1; // grab original size
-            const maxSize = _pictures.sizes.size[quality].width;
-            TemplateGallery.home(_pictures.sizes.size[quality].source, maxSize);
+            const imageQuality = _pictures.sizes.size.findIndex(
+              pic => pic.label === "Medium"
+            );
+            const maxSize = _pictures.sizes.size[imageQuality].width;
+            TemplateGallery.home(
+              _pictures.sizes.size[imageQuality].source,
+              maxSize
+            );
           })
           .then(x => Util.loadComplete());
       });
