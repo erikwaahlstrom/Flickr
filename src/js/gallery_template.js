@@ -13,7 +13,7 @@ export default class TemplateGallery {
     document.querySelector(".gallery ul").innerHTML = null;
   }
 
-  // _message = `Don't be shy! just type on the search` message from main.js
+  // _message = error message from main.js
   static error(_message) {
     document
       .querySelector(".gallery ul")

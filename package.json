@@ -9,6 +9,7 @@
     "url": "git+https://github.com/cygni/cygni-rekrytering-frontend.git"
   },
   "dependencies": {
+    "autoprefixer": "^9.4.7",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-polyfill": "^6.26.0",
@@ -19,9 +20,13 @@
   },
   "scripts": {
     "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "server:livereload": "livereload ./app",
     "server:serve": "http-server ./app -p 8080",
     "prestart": "npm install",
     "start": "npm-run-all --parallel server:*"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.9"
   }
 }

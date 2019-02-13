@@ -29,7 +29,9 @@ window.addEventListener("load", () => {
         Gallery.getInstance(apiKey, searchInput);
       } else {
         TemplateGallery.cleanContent();
-        TemplateGallery.error(`Don't be shy! just type on the search`);
+        TemplateGallery.error(
+          `Ajdå! Det verkar som att du råkat söka utan att ange något i sökfältet. Prova igen!`
+        );
       }
     });
 });
